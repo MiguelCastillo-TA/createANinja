@@ -1,10 +1,10 @@
 import { useState } from "react";
-import humanCharacter from "../assets/images/human.png";
 import LabelCheckboxes from "../../components/inputs/LabelCheckboxes";
 import LabelInputType from "../../components/inputs/LabelInputType";
 import LabelSelect from "../../components/LabelSelect";
 import StatDisplay from "../../components/StatDisplay";
 import StatDisplayList from "../../components/StatDisplayList";
+import HumanSvg from "../../components/svg/HumanSvg";
 
 const POSITIONS = ['frontend', 'backend', 'fullstack'];
 const LANGUAGES = ['css', 'html', 'javascript', 'python', 'java']
@@ -89,7 +89,9 @@ const CreateANinja = () => {
                     }
                 </section>
                 
-                <img src={humanCharacter} alt="" />
+                <div className="human-svg-wrp">
+                    <HumanSvg fillAnimation={submitted}/>
+                </div>
             </div>
 
         </div>

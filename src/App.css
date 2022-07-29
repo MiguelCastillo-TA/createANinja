@@ -21,7 +21,7 @@ h1{
 .content-wrp{
   display: flex;
   flex-direction: column;
-  gap: 10%;
+  gap: 5%;
   align-items: center;
   padding: 2vw;
   flex: 1;
@@ -66,12 +66,15 @@ label.checkbox-wrp{
 }
 
 .character-stats{
-  /* height: 20vh; */
+  height: 30%;
   width: 100%;
   display: flex;
   flex-direction:column;
   gap: 10px 0;
   width: 50%;
+}
+.human-svg-wrp{
+  height: 70%;
 }
 .character-stats p{
   display: grid;
@@ -85,7 +88,7 @@ label.checkbox-wrp{
 .character-stats ul{
   display: flex;
   flex-direction: column;
-  max-height: 80px;
+  max-height: 60px;
   overflow-y: scroll;
   list-style: none;
   text-align: left;

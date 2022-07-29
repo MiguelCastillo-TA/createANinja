@@ -1,7 +1,8 @@
 import { useState } from "react";
-import humanCharacter from "../assets/images/human.png";
 import LabelInputType from "../components/inputs/LabelInputType";
 import StatDisplay from "../components/StatDisplay";
+// ADVANCE
+import HumanSvg from "../components/svg/HumanSvg";
 
 const POSITIONS = ['frontend', 'backend', 'fullstack'];
 const LANGUAGES = ['css', 'html', 'javascript', 'python', 'java']
@@ -22,9 +23,9 @@ const CreateNinja = () => {
     // when TRUE => Ninja stats will appear on the HTML
     const [submitted, setSubmitted] = useState(false);
 
-    // The function that will handle updating the ninja stats.
-    // it will receive 'event' and through that event we can obtain the
-    // stat they want to change and the new value
+    // The function that will handle input changes to update the ninja stats from the.
+    // it will receive 'event' and with that event we can obtain the
+    // stat that needs to be uodated and the new value
     const handleNinjaStatChange = (e) => {
         // name of the input changing
         // value of the input
@@ -65,7 +66,7 @@ const CreateNinja = () => {
             <div className="content-wrp">
                 <h1>Create A Ninja!</h1>
                 <form onSubmit={handleFormSubmit}>
-                    <LabelInputType label={"name"} type={"text"}/>
+                    <LabelInputType label={"name"} type={"text"} placeholder={"What is your name?"}/>
                     <input type="submit" value="Create Character" />
                 </form>
             </div>
@@ -79,9 +80,10 @@ const CreateNinja = () => {
                     }
                 </section>
                 
-                <img src={humanCharacter} alt="" />
+                <div>
+                    <HumanSvg fillAnimation={submitted}/>
+                </div>
             </div>
-
         </div>
     )
 }
