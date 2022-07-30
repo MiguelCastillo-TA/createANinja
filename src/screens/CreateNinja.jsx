@@ -1,8 +1,10 @@
 import { useState } from "react";
 import LabelInputType from "../components/inputs/LabelInputType";
 import StatDisplay from "../components/StatDisplay";
+import LabelSelect from "../components/LabelSelect";
 // ADVANCE
 import HumanSvg from "../components/svg/HumanSvg";
+import LabelCheckboxes from "../components/inputs/LabelCheckboxes";
 
 const POSITIONS = ['frontend', 'backend', 'fullstack'];
 const LANGUAGES = ['css', 'html', 'javascript', 'python', 'java']
@@ -29,6 +31,7 @@ const CreateNinja = () => {
     const handleNinjaStatChange = (e) => {
         // name of the input changing
         // value of the input
+        console.log(e.target.name)
 
         // Update state
         // first copy the current object state
@@ -56,9 +59,11 @@ const CreateNinja = () => {
     // the function when a user clicks the submit button
     const handleFormSubmit = (e) => {
         // prevent the default action
+        e.preventDefault();
         
         // change the variable submitted to true
-        alert('submitted')
+        setSubmitted("true");
+        // alert('submitted');
     }
 
     return (
@@ -66,7 +71,10 @@ const CreateNinja = () => {
             <div className="content-wrp">
                 <h1>Create A Ninja!</h1>
                 <form onSubmit={handleFormSubmit}>
-                    <LabelInputType label={"name"} type={"text"} placeholder={"What is your name?"}/>
+                    <LabelInputType value={ninjaStats.name} handleOnChange={handleNinjaStatChange} label={"name"} type={"text"} placeholder={"What is your name?"}/>
+                    <LabelInputType value={ninjaStats.age} handleOnChange={handleNinjaStatChange} label={"age"} type={'number'} placeholder={"0"}/>
+                    <LabelSelect handleOnChange={handleNinjaStatChange} label={"position"} options={POSITIONS}/>
+                    <LabelCheckboxes handleOnChange={handleNinjaStatChange} label={"Languajes"} options ={LANGUAGES}/>
                     <input type="submit" value="Create Character" />
                 </form>
             </div>
@@ -76,6 +84,9 @@ const CreateNinja = () => {
                         submitted &&
                         <>
                             <StatDisplay label={"Name"} stat={ninjaStats.name}/>
+                            <StatDisplay label={"Age"} stat={ninjaStats.age}/>
+                            <StatDisplay label={"Position"} stat={ninjaStats.position}/>
+                            <StatDisplay label={"Languajes"} stat={ninjaStats.languages}/>
                         </>
                     }
                 </section>
